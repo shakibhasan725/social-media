@@ -1,7 +1,7 @@
 const express = require('express');
 
 
-const {profilePage, loginPage, registerPage, registerUser, loginUser, logoutUser, userActivation, editUser,profilePhotoChange,userPasswordChange,profileUpdate}=require('../controllers/userController');
+const {profilePage, loginPage, registerPage, registerUser, loginUser, logoutUser, userActivation, editUser,profilePhotoChange,userPasswordChange,profileUpdate,galaryPhotoChange,galaryPhoto}=require('../controllers/userController');
 const authRedirect = require('../middlewares/authRedirectMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const multer = require('multer');
@@ -52,6 +52,8 @@ const profilePhotoUpdate = multer({
 router.get('/', authRedirect , profilePage);
 router.get('/edit', authRedirect , editUser);
 router.get('/change-photo', authRedirect , profilePhotoChange);
+router.get('/gallary', authRedirect , galaryPhoto);
+router.post('/gallary', authRedirect , galaryPhotoChange);
 router.post('/change-photo', profilePhotoUpdate , profileUpdate);
 router.get('/change-password', authRedirect , userPasswordChange);
 

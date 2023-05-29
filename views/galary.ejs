@@ -1,0 +1,32 @@
+<div class="profile">
+
+    
+    <%- include('layouts/menu.ejs') %>
+
+
+
+    <div class="right">
+        <h1 style="margin-top: 10px; margin-left: 10px;">Gallary</h1>
+        <hr>
+        <div class="pro_details">
+        
+            <h1 style="margin-top: 10px; margin-left: 10px;">Upload Photo</h1>
+
+            <form action="/gallary" method="POST" enctype="multipart/form-data">
+                <input type="file" multiple name="Photos" style="margin-top: 10px; margin-left: 10px;">
+                <input type="submit" value="Upload" style="margin-bottom: 10px;">
+                <h2>Photo Ready For Upload</h2>
+                <hr>
+
+            </form>
+            <div class="pictures">
+                <div class="picture">
+                    
+                </div>
+                
+                
+            </div>
+
+        </div>
+    </div>
+</div>

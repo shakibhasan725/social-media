@@ -419,7 +419,22 @@ const userPasswordChange = (req, res)=>{
 }
 
 
+//Galary Photo
 
+const galaryPhoto = async (req, res)=>{
+    res.render('galary')
+
+
+}
+
+//Galary Photo Update
+
+
+const galaryPhotoChange =async (req, res)=>{
+
+    res.render('galary')
+
+}
 
 
 
@@ -438,5 +453,7 @@ module.exports={
     editUser,
     profilePhotoChange,
     userPasswordChange,
-    profileUpdate
+    profileUpdate,
+    galaryPhoto,
+    galaryPhotoChange
 }
