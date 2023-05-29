@@ -1,0 +1,36 @@
+<div class="profile">
+
+    <%- include('layouts/menu.ejs') %>
+
+    <div class="right">
+        <h1 class="edit">Change Profile</h1>
+        <hr>
+        <form id="edit_form" action="/change-photo" method="POST" enctype="multipart/form-data">
+
+          
+            
+            <% if (user.photo) { %>
+                
+                <img id="profile_change" class="profile_preview" src="/media/users/<%= user.photo %>" alt=""><br>
+                <% }else{%> 
+                    
+                    <img id="profile_change" class="profile_preview" src="/img/pngwing.com.png" alt=""><br>
+                
+                <%} %> 
+             
+            
+             
+
+
+
+            <input  id="photo_update" name="photo" type="file"><br>
+            <input type="submit" value="Submit"   id="submit">
+
+    </form>
+    
+    <% if (message) { %>
+        <p class="error"><%= message %></p>
+    <% } %>
+   
+    </div>
+</div>

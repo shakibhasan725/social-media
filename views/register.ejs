@@ -1,0 +1,31 @@
+<div class="full">
+    <div class="img_left">
+        <img src="img/pic.png" alt="">
+    </div>
+    <div class="form_full">
+        
+        <form action="/register" method="post">
+                <label for="name">Full Name</label><br>
+                <input type="text" name="name" id="name"><br>
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="username"><br>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email"><br>
+                <label for="phone">Phone</label><br>
+                <input type="text" name="phone" id="phone"><br>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" id="password"><br>
+                <label for="gender">Gender</label><br>
+                <input type="radio" name="gender" id="male" value="male"> <label for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="Female"> <label for="female">Female</label><br>
+                <input type="submit" value="Create Account"   id="submit">
+
+        </form>
+
+        <% if (message) { %>
+            <p class="error"><%= message %></p>
+        <% } %>
+        
+        <a href="/login" id="login">Login</a>
+    </div>
+</div>

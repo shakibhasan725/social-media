@@ -1,0 +1,42 @@
+<div class="profile">
+
+    
+    <%- include('layouts/menu.ejs') %>
+
+
+
+    <div class="right">
+        <div class="profile_all">
+
+            <% if (user.photo) { %>
+                
+                <img src="/media/users/<%= user.photo %>" alt=""><br>
+                <% }else{%> 
+                    
+                    <img  src="/img/pngwing.com.png" alt=""><br>
+                
+                <%} %> 
+          
+            <h1><%= user.name %></h1> 
+            <h3>@<%= user.username %></h3>
+          
+        </div>
+        <hr>
+        <div class="pro_details">
+            <ul>
+                <li><i class="ri-phone-line"></i> Phone: <%= user.phone %> </li>
+                <li><i class="ri-mail-line"></i> Email: <%= user.email %> </li>
+            </ul>
+
+            <h1>Pictures</h1>
+            <div class="pictures">
+                <div class="picture">
+                    
+                </div>
+                
+                
+            </div>
+
+        </div>
+    </div>
+</div>

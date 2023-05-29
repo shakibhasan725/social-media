@@ -1,0 +1,267 @@
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+.full{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 50%;
+    background-color: rgb(206, 198, 207);
+    margin: auto;
+    margin-top: 60px;
+    -webkit-box-shadow: -20px 12px 39px -15px rgba(0,0,0,0.79);
+    -moz-box-shadow: -20px 12px 39px -15px rgba(0,0,0,0.79);
+    box-shadow: -20px 12px 39px -15px rgba(0,0,0,0.79);
+    border-radius: 3px;
+    
+}
+.img_left{
+    width: 50%;
+    overflow: hidden;
+   
+}
+
+.img_left img{
+    object-fit: cover;
+    margin-left: -1px;
+}
+
+.form_full{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    line-height: 28px;
+    background: transparent;
+
+
+}
+.form_full form{
+    font-size: 17px;
+    font-family: roboto;
+    font-weight: bold;
+    color: rgb(61, 61, 60);
+}
+
+.form_full form input{
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+#submit{
+    background-color: rgb(36, 36, 46);
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+
+.error{
+    color: rgb(216, 19, 19);
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#login{
+    text-decoration: none;
+    color: rgb(9, 44, 219);
+    font-size: 16px;
+}
+
+/*Profile code*/
+
+body{
+    background-color: rgba(207, 207, 207, 0.422);
+}
+
+
+.profile{
+    height: 550px;
+    width: 80%;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+.left{
+    width: 35%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.profile_detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile_detail img{
+    height: 90px;
+    width: 90px;
+    margin-top: 40px;
+    background-color: rgba(38, 160, 254, 0.799);
+    border-radius: 50%;
+    padding: 3px;
+    object-fit: cover;
+    justify-content: center;
+    
+
+}
+.profile_detail h1{
+    font-family: roboto;
+    font-size: 30px;
+    margin-top: 10px;
+    color: rgba(31, 31, 31, 0.767);
+}
+
+.profile_fitures{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.profile_fitures ul{
+    margin-top: 10px;
+    margin-left: 40px;
+}
+a{
+    text-decoration: none;
+}
+.profile_fitures ul li{
+    list-style: none;
+    font-size: 17px;
+    margin-top: 25px;
+   
+  
+
+
+}
+.profile_fitures ul li a{
+    padding: 10px;
+    color: black;
+}
+
+.right{
+    background-color: aliceblue;
+    width: 68%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+.profile_all{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+
+.profile_all img{
+    width: 150px;
+    margin-top: 30px;
+    margin-left: 45px;
+    border-radius: 10px;
+    padding: 2px;
+
+}
+.profile_all h1{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+}
+
+.profile_all h3{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.pro_details ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+}
+
+.pro_details li{
+    list-style: none;
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.pro_details h1{
+    font-size: 25px;
+
+}
+
+.pictures{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+
+.picture{
+    background-color: aqua;
+    height: 150px;
+    width: 180px;
+    
+}
+
+.edit{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#edit_form{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+    
+}
+
+#edit_form input{
+    font-size: 20px;
+}
+
+.pass_change{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#profile_change{
+    width: 250px;
+    margin-bottom: 20px;
+}

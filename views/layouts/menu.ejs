@@ -1,0 +1,36 @@
+
+<div class="left">
+    
+
+
+<div class="profile_detail">
+    <% if (user.photo) { %>
+                
+        <img src="/media/users/<%= user.photo %>" alt=""><br>
+        <% }else{%> 
+            
+            <img src="/img/pngwing.com.png" alt=""><br>
+        
+        <%} %> 
+  
+    <h1><%= user.name %></h1> 
+         <hr>  
+</div>
+
+<div class="profile_fitures">
+    <hr>
+    <ul>
+        <li><a href="/"><i class="ri-contacts-fill"></i> Profile</a></li>
+        <li><a href="/edit"><i class="ri-edit-box-line"></i> Edit</a></li>
+        <li><a href="/change-password"><i class="ri-lock-unlock-line"></i> Change Password</a></li>
+        <li><a href="/change-photo"><i class="ri-camera-fill"></i> Change Profile Photo </a></li>
+        <li><a href="/gallary"><i class="ri-camera-fill"></i> Gallary </a></li>
+        <li><a href="#"><i class="ri-camera-fill"></i> Friends</a></li>
+        <li><a href="#"><i class="ri-camera-fill"></i> Find Friend</a></li>
+        <li><a href="/logout"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+    </ul>
+</div>
+
+        
+
+</div>
