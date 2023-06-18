@@ -6,23 +6,33 @@
     <div class="right">
         <h1 class="edit">Edit Details</h1>
         <hr>
-        <form id="edit_form" action="">
+        <form id="edit_form" action="/edit" method="POST">
             <label for="name">Full Name</label><br>
-            <input type="text" name="name" id="name"><br>
+            <input type="text" name="name" id="name" value="<%= user.name %>"><br>
             <label for="username">Username</label><br>
-            <input type="text" name="username" id="username"><br>
+            <input type="text" name="username" id="username" value="<%= user.username %>"><br>
             <label for="email">Email</label><br>
-            <input type="email" name="email" id="email"><br>
+            <input type="email" name="email" id="email" value="<%= user.email %>"><br>
             <label for="phone">Phone</label><br>
-            <input type="text" name="Phone" id="phone"><br>
+            <input type="text" name="phone" id="phone" value="<%= user.phone %>"><br>
             
             <label for="gender">Gender</label><br>
-            <input type="radio" name="gender" id="male" value="male"> <label for="male">Male</label>
-            <input type="radio" name="gender" id="female" value="Female"> <label for="female">Female</label><br>
+
+           
+                <input type="radio" name="gender" id="male" value="male"> <label for="male">Male</label>
+             
+           
+
+            
+                
+                <input  type="radio" name="gender" id="female" value="female"> <label for="female">Female</label><br>
+         
             <input type="submit" value="Submit"   id="submit">
 
     </form>
-    <p class="error"></p>
+     <% if (message) { %>
+        <p class="error"><%= message %></p>
+    <% } %>
    
     </div>
 </div>

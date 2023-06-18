@@ -118,7 +118,7 @@ body{
 .profile_detail img{
     height: 90px;
     width: 90px;
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: rgba(38, 160, 254, 0.799);
     border-radius: 50%;
     padding: 3px;
@@ -130,18 +130,18 @@ body{
 .profile_detail h1{
     font-family: roboto;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: -6px;
     color: rgba(31, 31, 31, 0.767);
 }
 
 .profile_fitures{
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .profile_fitures ul{
-    margin-top: 10px;
+    margin-top: -10px;
     margin-left: 40px;
 }
 a{
@@ -174,7 +174,7 @@ a{
 
 .profile_all{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     
 
 }
@@ -182,23 +182,28 @@ a{
 
 .profile_all img{
     width: 150px;
+    height: 150px;
     margin-top: 30px;
     margin-left: 45px;
-    border-radius: 10px;
+    border-radius: 50%;
     padding: 2px;
+    object-fit: cover;
+    margin-bottom: 10px;
+
 
 }
 .profile_all h1{
     font-size: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 65px;
+    
     margin-left: 10px;
 
 }
 
 .profile_all h3{
     margin-left: 10px;
-    margin-bottom: 10px;
+    margin-top: -10px;
+    color: rgb(88, 86, 86);
 }
 
 .pro_details ul{
@@ -220,8 +225,10 @@ a{
 
 .pro_details h1{
     font-size: 25px;
+    margin-top: 5px;
 
 }
+
 
 .pictures{
     display: flex;
@@ -233,10 +240,13 @@ a{
 
 }
 
-.picture{
+.picture img{
     background-color: aqua;
     height: 150px;
     width: 180px;
+    object-fit: cover;
+    justify-content: center;
+    border-radius: 10px;
     
 }
 

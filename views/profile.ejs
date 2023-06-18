@@ -1,4 +1,4 @@
-<div class="profile">
+<div class="profile" id="profile-page">
 
     
     <%- include('layouts/menu.ejs') %>
@@ -16,9 +16,11 @@
                     <img  src="/img/pngwing.com.png" alt=""><br>
                 
                 <%} %> 
-          
-            <h1><%= user.name %></h1> 
-            <h3>@<%= user.username %></h3>
+            <div class="sortdetail">
+                <h1><%= user.name %></h1> <br>
+                <h3>@<%= user.username %></h3>
+
+            </div>
           
         </div>
         <hr>
@@ -27,12 +29,19 @@
                 <li><i class="ri-phone-line"></i> Phone: <%= user.phone %> </li>
                 <li><i class="ri-mail-line"></i> Email: <%= user.email %> </li>
             </ul>
-
+            <hr>
             <h1>Pictures</h1>
             <div class="pictures">
-                <div class="picture">
+
+                
+                    <% user.gallery.forEach(gall => { %>
+                        
+                        <div class="picture">
+                            <img src="./media/gallery/<%= gall %>" alt="">
+                        </div>
+                    <% }) %>
                     
-                </div>
+               
                 
                 
             </div>

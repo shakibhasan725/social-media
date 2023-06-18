@@ -14,13 +14,84 @@
 
 
     <script>
-        document.getElementById('photo_update').onchange=(e)=>{
 
-            const url = URL.createObjectURL(e.target.files[0]);
-          
-            document.querySelector('.profile_preview').setAttribute('src', url);
+        //profile photo change
+        if(document.getElementById('photo_update')){
+            document.getElementById('photo_update').onchange=(e)=>{
+
+                const url = URL.createObjectURL(e.target.files[0]);
+
+                document.querySelector('.profile_preview').setAttribute('src', url);
+
+            }
+        }
+
+
+        // Gallery Photo update
+
+        if(document.getElementById('galary-photo-upload')){
+
+            const submitBtn = document.getElementById('gallery-submit');
+
+               
+
+                    submitBtn.style.display= 'none'; 
+                
+
+            document.getElementById('galary-photo-upload').onchange=(e)=>{
+               
+                
+                if(e.target.files.length > 0 && e.target.files.length <=5){
+                    submitBtn.style.display= 'inline'; 
+
+                }
+
+
+                
+                if(e.target.files.length > 5){
+
+                    const input = document.getElementById('galary-photo-upload');
+
+                    input.value = '';
+                    alert('You can only Upload 5 photos at a time')
+                }else{
+
+                    const files = e.target.files;
+
+                    let images = '';
+
+
+                    for(let i = 0 ; i < files.length ; i++ ){
+
+                        const url = URL.createObjectURL(files[i]);
+
+                        images += `<div class="picture" ><img src="${url}" alt=""></div>`;
+                        }
+
+                        document.getElementById('galary-photos').innerHTML = images
+
+                    
+                    }
+                }
+
+
+                
+
+            
 
         }
+
+
+        // Gallery photo show
+
+        
+
+      
+
+
+
+
+
     </script>
     
 </body>

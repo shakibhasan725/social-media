@@ -7,6 +7,7 @@ const makeHash = require('../Utility/hash');
 const validate = require('../Utility/validate');
 const createToken = require('../Utility/jwt');
 const { verifyAccountMail } = require('../Utility/sendMail');
+const session = require('express-session');
 
 
 /**
@@ -419,6 +420,67 @@ const userPasswordChange = (req, res)=>{
 }
 
 
+
+// User Password Update
+
+
+const userPasswordUpdate =async (req, res)=>{
+
+
+    try {
+        
+
+
+
+
+        const {password, newpassword, confirmpassword} = req.body;
+    
+        const username = req.session.user.username;
+    
+    
+        const usern = await user.findOne().where('username').equals(username);
+    
+        
+        const passCheck = await bcrypt.compareSync(password, usern.password);
+    
+        if(passCheck){
+    
+            if(newpassword == confirmpassword){
+    
+                const newPassCheck = await bcrypt.compareSync(newpassword, usern.password);
+    
+                if(!newPassCheck){
+    
+                    await user.findByIdAndUpdate(usern._id ,{
+                        password: makeHash(newpassword),
+                    })
+    
+                    validate('Password Changed', '/change-password', req, res)
+    
+    
+                }else{
+                    validate('You Have Entered Old Password', '/change-password' , req, res)
+                }
+    
+            }else{
+                validate('New Password & Confirm Password Not Matched', '/change-password', req, res)
+            }
+    
+    
+    
+        }else{
+    
+            validate('Wrong Old Password', '/change-password', req, res);
+        }
+
+
+    } catch (error) {
+        validate(error.message, '/change-password', req, res)
+    }
+
+}
+
+
 //Galary Photo
 
 const galaryPhoto = async (req, res)=>{
@@ -432,9 +494,111 @@ const galaryPhoto = async (req, res)=>{
 
 const galaryPhotoChange =async (req, res)=>{
 
-    res.render('galary')
+    try {
+
+        
+
+            let file_arr = [];
+    
+            req.files.forEach(items => {
+                file_arr.push(items.filename);
+                req.session.user.gallery.push(items.filename);
+            });
+    
+            // data push
+    
+            await user.findByIdAndUpdate(req.session.user._id,{
+                $push:{
+                    gallery: {$each: file_arr },
+    
+                }
+            })
+
+       
+
+       
+                
+
+             validate('Photo Uploaded ', '/gallery',req, res) ;         
+        
+    }catch(error) {
+
+                    validate(error.message, '/gallery', req, res);
+    }
 
 }
+
+
+// Edit User Info update
+
+
+const editUserUpdate = async (req, res) =>{
+
+
+    try{
+        const{name, username, email, phone, gender} = req.body;
+
+        
+        
+        if(!name,!username, !email, !phone, !gender){
+            validate('All Fields Are Required', '/edit', req, res);
+
+
+        }else{
+            const id = req.session.user._id;
+
+
+
+            const unerFind = await user.findOne().where('_id').equals(id);
+           
+            const usernameCheck = await user.findOne().where("username").equals(username);
+            
+            const emailCheck = await user.findOne().where("email").equals(email);
+    
+            if( emailCheck && email != unerFind.email ){
+    
+                validate('Email Already exist', '/edit', req, res);
+
+                if(usernameCheck && username != unerFind.username){
+                    validate('Username Already Exist', '/edit', req, res);
+                }else{
+
+
+                    await user.findByIdAndUpdate(unerFind._id , {
+                        name: name,
+                        username: username,
+                        email: email,
+                        phone: phone,
+                        gender: gender
+                    });
+    
+                    req.session.user.name = req.body.name;
+                    req.session.user.username = req.body.username;
+                    req.session.user.email = req.body.email;
+                    req.session.user.phone = req.body.phone;
+                    req.session.user.gender = req.body.gender;
+                }
+
+    
+            }
+
+
+            validate('Info Updated Successfully', '/edit', req, res);
+
+        }
+
+
+
+        
+    } catch (error) {
+        validate("Email Already exist", '/edit', req, res)
+    }
+
+    
+
+}
+
+
 
 
 
@@ -455,5 +619,7 @@ module.exports={
     userPasswordChange,
     profileUpdate,
     galaryPhoto,
-    galaryPhotoChange
+    galaryPhotoChange,
+    editUserUpdate,
+    userPasswordUpdate
 }

@@ -37,7 +37,7 @@ const userSchema = mongoose.Schema({
         minlength: 3 ,
 
     },
-    galary: {
+    gallery: {
         type : Array,
         minlength: 3 
 
